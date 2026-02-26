@@ -5,7 +5,7 @@ let courses = {
 HTML:{
 ids:["H1001","H1002","H1003","H1004","H1005"],
 lessons:[
-{title:"HTML Intro",video:"videos/html1.mp4"},
+{title:"HTML Intro",video:"https://cdn.discordapp.com/attachments/1476343868109881476/1476508770308722698/a3d8166c-562a-46dc-b516-8f3205a1f50e.mov?ex=69a16173&is=69a00ff3&hm=90c04154860dc5e49a2e2d6eef58ed6745efa4b41ba0f8f72df3c8b17e291d18&"},
 {title:"HTML Tags",video:"videos/html2.mp4"},
 {title:"HTML Forms",video:"videos/html3.mp4"}
 ]
