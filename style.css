@@ -1,66 +1,37 @@
-:root {
-    --primary: #00f2ff;
-    --bg-dark: #0a0a0b;
-    --card-bg: #161618;
-    --text-color: #ffffff;
+:root { --primary: #00f2ff; --bg-dark: #050505; }
+
+body { margin: 0; background: var(--bg-dark); color: white; font-family: sans-serif; overflow-y: auto; } /* Laptop-ka waa la dhaqaajin karaa */
+
+/* Video Cabbirkiisa */
+.video-container { position: relative; width: 100%; max-width: 900px; margin: auto; background: #000; }
+video { width: 100%; display: block; border-radius: 8px; }
+
+/* Watermark socda (Amniga) */
+.watermark {
+    position: absolute; top: 10%; left: 10%; color: rgba(255, 255, 255, 0.4);
+    font-size: 14px; pointer-events: none; z-index: 5; white-space: nowrap;
+    animation: moveWatermark 10s linear infinite;
+}
+@keyframes moveWatermark {
+    0% { top: 10%; left: 10%; } 50% { top: 80%; left: 70%; } 100% { top: 10%; left: 10%; }
 }
 
-* { box-sizing: border-box; transition: all 0.3s ease; }
-body, html { 
-    margin: 0; padding: 0; background: var(--bg-dark); 
-    color: var(--text-color); font-family: 'Segoe UI', sans-serif; 
-    overflow-x: hidden; height: 100vh;
+/* Xayeysiiska Video-ga dhexdiisa */
+.ad-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9); display: none; justify-content: center;
+    align-items: center; z-index: 100; text-align: center;
+}
+.ad-content { padding: 20px; border: 1px solid var(--primary); border-radius: 15px; }
+
+/* Mobile Madowga ka saar */
+@media (max-width: 768px) {
+    .content-layout { display: block; }
+    .video-section { padding: 0; background: none; }
+    .playlist-section { height: auto; border: none; }
 }
 
-/* LOGIN DESIGN */
-#loginSection { display: none; height: 100vh; justify-content: center; align-items: center; background: radial-gradient(circle, #1a1a1d 0%, #000 100%); }
-#loginSection.active { display: flex; }
-
-.login-card { 
-    background: var(--card-bg); padding: 40px; border-radius: 20px; 
-    width: 90%; max-width: 400px; text-align: center;
-    border: 1px solid #333; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-.logo { font-size: 28px; font-weight: 800; letter-spacing: 4px; color: var(--primary); margin-bottom: 10px; }
-
-/* SEARCH/INPUT IFTIINKA */
-input { 
-    width: 100%; padding: 15px; background: #000; border: 2px solid #222; 
-    color: white; border-radius: 12px; font-size: 16px; margin: 20px 0; outline: none;
-}
-input:focus { border-color: var(--primary); box-shadow: 0 0 15px var(--primary); }
-
-/* BUTTON DHAQQAAQ */
-.btn-primary { 
-    width: 100%; padding: 15px; background: var(--primary); border: none; 
-    border-radius: 12px; font-weight: bold; cursor: pointer; color: #000; font-size: 16px;
-}
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 5px 20px rgba(0, 242, 255, 0.4); }
-.btn-primary:active { transform: translateY(1px); }
-
-/* LAPTOP LAYOUT */
-#courseSection { display: none; flex-direction: column; height: 100vh; }
-
-.content-layout { display: flex; flex: 1; overflow: hidden; }
-
-.video-section { flex: 3; background: #000; display: flex; align-items: center; justify-content: center; padding: 20px; }
-.video-wrapper { width: 100%; max-width: 1000px; aspect-ratio: 16/9; box-shadow: 0 0 50px rgba(0,0,0,0.8); }
-video { width: 100%; height: 100%; border-radius: 8px; }
-
-.playlist-section { flex: 1; background: #111; border-left: 1px solid #222; padding: 20px; overflow-y: auto; }
-
-/* LESSON CARDS */
-.lesson-card { 
-    background: #1a1a1c; padding: 18px; border-radius: 12px; margin-bottom: 12px; 
-    cursor: pointer; border: 1px solid #222; display: flex; align-items: center;
-}
-.lesson-card:hover { background: #252528; border-color: var(--primary); transform: translateX(5px); }
-.lesson-card.active { border-left: 5px solid var(--primary); background: #001a1d; }
-
-/* MOBILE RESPONSIVE */
-@media (max-width: 900px) {
-    .content-layout { flex-direction: column; overflow-y: auto; }
-    .playlist-section { border-left: none; border-top: 1px solid #222; }
-    .video-section { padding: 10px; position: sticky; top: 0; z-index: 100; }
+/* Amniga Recording-ka (Madowga shaashadda) */
+@media screen and (max-width: 1000px) {
+    body { -webkit-user-select: none; -webkit-touch-callout: none; }
 }
