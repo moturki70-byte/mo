@@ -1,41 +1,29 @@
 <!DOCTYPE html>
-<html lang="so">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FAHAM ACADEMY</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAHAM ACADEMY</title>
+<link rel="stylesheet" href="style.css">
 </head>
-<body oncontextmenu="return false;"> <div id="loginSection" class="active">
-        <div class="login-card">
-            <h1>FAHAM ACADEMY</h1>
-            <p>Geli ID-gaaga gaarka ah</p>
-            <input type="text" id="studentID" placeholder="ID (Tusaale: FAHAM-IT-101)">
-            <button onclick="validateAccess()">BILOW CASHARKA</button>
-        </div>
-    </div>
+<body>
 
-    <div id="courseSection">
-        <header>
-            <h2 id="courseTitle">Loading...</h2>
-            <button onclick="location.reload()">Logout</button>
-        </header>
+<div class="login-box" id="loginBox">
+<h2>FAHAM ACADEMY LOGIN</h2>
+<input type="text" id="studentId" placeholder="Gali ID-gaaga">
+<button onclick="login()">Login</button>
+<p id="error"></p>
+</div>
 
-        <div class="main-container">
-            <div class="video-box">
-                <video id="videoPlayer" controls controlsList="nodownload" disablepictureinpicture oncontextmenu="return false;">
-                    <source id="videoSrc" src="" type="video/mp4">
-                </video>
-                <div id="watermark">FAHAM ACADEMY | <span id="userTag">ID</span></div>
-            </div>
+<div id="mainContent" class="hidden">
+<header>
+FAHAM ACADEMY
+<span id="showId"></span>
+</header>
 
-            <div class="playlist-box">
-                <h3>CASHARRADA</h3>
-                <div id="playlistItems"></div>
-            </div>
-        </div>
-    </div>
+<div id="coursesContainer"></div>
+</div>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
