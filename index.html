@@ -5,56 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>FAHAM ACADEMY</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        @media only screen and (max-width: 600px) {
-            video { width: 100% !important; height: auto !important; }
-        }
-    </style>
 </head>
 <body oncontextmenu="return false;"> <div id="loginSection" class="active">
         <div class="login-card">
-            <div class="logo">FAHAM ACADEMY</div>
+            <h1>FAHAM ACADEMY</h1>
             <p>Geli ID-gaaga gaarka ah</p>
-            <input type="text" id="studentID" placeholder="ID (Tusaale: SB-101)">
-            <button class="btn-primary" onclick="validateAccess()">BILOW</button>
+            <input type="text" id="studentID" placeholder="ID (Tusaale: FAHAM-IT-101)">
+            <button onclick="validateAccess()">BILOW CASHARKA</button>
         </div>
     </div>
 
     <div id="courseSection">
-        <header class="top-bar">
-            <h2>FAHAM ACADEMY</h2>
-            <button class="logout-btn" onclick="location.reload()">Ka bax</button>
+        <header>
+            <h2 id="courseTitle">Loading...</h2>
+            <button onclick="location.reload()">Logout</button>
         </header>
 
-        <main class="content-layout">
-            <div class="video-section">
-                <div class="video-container">
-                    <video id="videoPlayer" controls controlsList="nodownload" oncontextmenu="return false;" disablepictureinpicture playsinline>
-                        <source id="videoSrc" src="" type="video/mp4">
-                    </video>
-                    <div id="watermark" class="watermark">FAHAM ACADEMY | <span id="userTag">ID</span></div>
-                    
-                    <div id="adOverlay" class="ad-overlay">
-                        <div class="ad-content">
-                            <h3>CASHARRO CUSUB!</h3>
-                            <p>Ma rabtaa inaad ku biirto koorsooyinka kale? Nagala soo xiriir WhatsApp.</p>
-                            <button onclick="closeAd()">Xir xayeysiiska</button>
-                        </div>
-                    </div>
-                </div>
+        <div class="main-container">
+            <div class="video-box">
+                <video id="videoPlayer" controls controlsList="nodownload" disablepictureinpicture oncontextmenu="return false;">
+                    <source id="videoSrc" src="" type="video/mp4">
+                </video>
+                <div id="watermark">FAHAM ACADEMY | <span id="userTag">ID</span></div>
             </div>
 
-            <aside class="playlist-section">
-                <h3>LIISKA CASHARRADA</h3>
-                <div id="playlistItems" class="lesson-list"></div>
-                <hr>
-                <h3>KOORSOOYIN KALE</h3>
-                <div class="other-courses">
-                    <div class="course-ad-card">Graphic Design - Dhawaan</div>
-                    <div class="course-ad-card">Digital Marketing - Dhawaan</div>
-                </div>
-            </aside>
-        </main>
+            <div class="playlist-box">
+                <h3>CASHARRADA</h3>
+                <div id="playlistItems"></div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
