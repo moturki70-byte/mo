@@ -1,34 +1,66 @@
-* { box-sizing: border-box; }
-body, html { margin: 0; padding: 0; background: #050505; color: white; font-family: sans-serif; overflow-x: hidden; }
-
-#loginSection, #courseSection { display: none; height: 100vh; flex-direction: column; }
-#loginSection.active { display: flex; justify-content: center; align-items: center; }
-/* Kani wuxuu ka dhigayaa mid Mobile-ka ku habboon */
-video {
-    width: 100% !important;
-    height: auto !important;
+:root {
+    --primary: #00f2ff;
+    --bg-dark: #0a0a0b;
+    --card-bg: #161618;
+    --text-color: #ffffff;
 }
 
-.video-container {
-    width: 100%;
-    max-width: 100vw;
-    overflow: hidden;
+* { box-sizing: border-box; transition: all 0.3s ease; }
+body, html { 
+    margin: 0; padding: 0; background: var(--bg-dark); 
+    color: var(--text-color); font-family: 'Segoe UI', sans-serif; 
+    overflow-x: hidden; height: 100vh;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow-x: hidden; /* Waxay diidaysaa inuu website-ka dhinac u baxo */
+/* LOGIN DESIGN */
+#loginSection { display: none; height: 100vh; justify-content: center; align-items: center; background: radial-gradient(circle, #1a1a1d 0%, #000 100%); }
+#loginSection.active { display: flex; }
+
+.login-card { 
+    background: var(--card-bg); padding: 40px; border-radius: 20px; 
+    width: 90%; max-width: 400px; text-align: center;
+    border: 1px solid #333; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
-.login-card { text-align: center; background: #111; padding: 40px; border-radius: 20px; width: 90%; max-width: 350px; border: 1px solid #222; }
-input { width: 100%; padding: 15px; margin: 20px 0; background: #000; border: 1px solid #333; color: white; border-radius: 10px; font-size: 16px; }
-button { width: 100%; padding: 15px; background: #00d4ff; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; color: #000; }
 
-header { padding: 15px; background: #111; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; }
-.video-container { width: 100%; aspect-ratio: 16/9; background: #000; position: sticky; top: 0; z-index: 10; }
-video { width: 100%; height: 100%; }
+.logo { font-size: 28px; font-weight: 800; letter-spacing: 4px; color: var(--primary); margin-bottom: 10px; }
 
-.lesson-list { padding: 15px; overflow-y: auto; flex: 1; }
-.lesson-card { background: #111; padding: 15px; border-radius: 10px; margin-bottom: 10px; border: 1px solid #222; cursor: pointer; }
-.lesson-card.active { border-color: #00d4ff; background: #00151a; }
+/* SEARCH/INPUT IFTIINKA */
+input { 
+    width: 100%; padding: 15px; background: #000; border: 2px solid #222; 
+    color: white; border-radius: 12px; font-size: 16px; margin: 20px 0; outline: none;
+}
+input:focus { border-color: var(--primary); box-shadow: 0 0 15px var(--primary); }
+
+/* BUTTON DHAQQAAQ */
+.btn-primary { 
+    width: 100%; padding: 15px; background: var(--primary); border: none; 
+    border-radius: 12px; font-weight: bold; cursor: pointer; color: #000; font-size: 16px;
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 5px 20px rgba(0, 242, 255, 0.4); }
+.btn-primary:active { transform: translateY(1px); }
+
+/* LAPTOP LAYOUT */
+#courseSection { display: none; flex-direction: column; height: 100vh; }
+
+.content-layout { display: flex; flex: 1; overflow: hidden; }
+
+.video-section { flex: 3; background: #000; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.video-wrapper { width: 100%; max-width: 1000px; aspect-ratio: 16/9; box-shadow: 0 0 50px rgba(0,0,0,0.8); }
+video { width: 100%; height: 100%; border-radius: 8px; }
+
+.playlist-section { flex: 1; background: #111; border-left: 1px solid #222; padding: 20px; overflow-y: auto; }
+
+/* LESSON CARDS */
+.lesson-card { 
+    background: #1a1a1c; padding: 18px; border-radius: 12px; margin-bottom: 12px; 
+    cursor: pointer; border: 1px solid #222; display: flex; align-items: center;
+}
+.lesson-card:hover { background: #252528; border-color: var(--primary); transform: translateX(5px); }
+.lesson-card.active { border-left: 5px solid var(--primary); background: #001a1d; }
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 900px) {
+    .content-layout { flex-direction: column; overflow-y: auto; }
+    .playlist-section { border-left: none; border-top: 1px solid #222; }
+    .video-section { padding: 10px; position: sticky; top: 0; z-index: 100; }
+}
