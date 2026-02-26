@@ -3,30 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Aqoon-sameeye Academy</title>
+    <title>Aqoon-sameeye Premium</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="loginSection" class="active">
         <div class="login-card">
-            <h1>SKILL—BASE</h1>
-            <p>Geli ID-gaaga si aad u bilowdo</p>
-            <input type="text" id="studentID" placeholder="ID gali">
-            <button onclick="validateAccess()">LOGIN</button>
+            <div class="logo">AQOON—SAMEEYE</div>
+            <p>Geli aqoonsigaaga si aad u gasho fasalka</p>
+            <div class="input-group">
+                <input type="text" id="studentID" placeholder="ID-GA ARDAYGA (SB-111)">
+            </div>
+            <button class="btn-primary" onclick="validateAccess()">BILOW CASHARKA</button>
         </div>
     </div>
 
     <div id="courseSection">
-        <header>
-            <span id="courseTitle">Course Name</span>
-            <button onclick="location.reload()" style="width: auto; padding: 5px 15px;">Logout</button>
+        <header class="top-bar">
+            <h2 id="courseTitle">Loading...</h2>
+            <button class="logout-btn" onclick="location.reload()">Ka bax</button>
         </header>
-        <div class="video-container">
-            <video id="videoPlayer" controls playsinline>
-                <source id="videoSrc" src="" type="video/mp4">
-            </video>
-        </div>
-        <div id="playlistItems" class="lesson-list"></div>
+
+        <main class="content-layout">
+            <div class="video-section">
+                <div class="video-wrapper">
+                    <video id="videoPlayer" controls controlsList="nodownload" playsinline>
+                        <source id="videoSrc" src="" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <aside class="playlist-section">
+                <h3>LIISKA CASHARRADA</h3>
+                <div id="playlistItems" class="lesson-list"></div>
+            </aside>
+        </main>
     </div>
 
     <script src="script.js"></script>
